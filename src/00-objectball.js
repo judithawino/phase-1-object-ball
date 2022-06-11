@@ -135,3 +135,23 @@ function gameObject(){
   return teams
 }
 console.log(gameObject());
+
+//create a game variable and use it to store the gameObject function
+const game = gameObject()
+//create a players variable and use it to store playersObject function
+const players= playersObject()
+//create a teams variable and use it to store the values of gameObject function
+const teams= Object.values(game);
+
+//create a function that uses the spread operator to create and return a new object that combines players both in home and away with all their stats
+function playersObject(){
+    
+  return {...game.home.players, ...game.away.players};  
+}
+console.log (playersObject());
+
+//using the players variable, the numPointsScored function calls the PlayersObject function and returns the points of a given player based on playerName
+function numPointsScored(playerName="Brendan Haywood"){
+  return players[playerName].points;
+}
+console.log (numPointsScored("Jason Terry"));
