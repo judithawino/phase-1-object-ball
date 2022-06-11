@@ -151,7 +151,12 @@ function playersObject(){
 console.log (playersObject());
 
 //using the players variable, the numPointsScored function calls the PlayersObject function and returns the points of a given player based on playerName
-function numPointsScored(playerName="Brendan Haywood"){
+function numPointsScored(playerName){
   return players[playerName].points;
 }
-console.log (numPointsScored("Jason Terry"));
+console.log (numPointsScored(playerName));
+
+function shoeSize(playerName){
+  return players[playerName].shoe;
+}
+console.log (shoeSize(playerName));
