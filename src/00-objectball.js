@@ -161,12 +161,17 @@ function shoeSize(playerName){
 }
 console.log (shoeSize(playerName));
 
-function teamNameFind(teamName="Brooklyn Nets"){
+function teamNameFind(teamName){
   return teamVar.find(function(){teamName===teamName});
 }
 console.log(teamNameFind())
 
-function teamColors(teamName="Charlotte Hornets"){
+function teamColors(teamName){
     return teamNameFind(teamName).colors;
 }
-console.log (teamColors("Brooklyn Nets"));
+console.log (teamColors());
+
+function teamNames(){
+  return teamVar.map(function(team){return team.teamName});  
+}
+console.log(teamNames());
