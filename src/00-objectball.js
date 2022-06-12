@@ -192,3 +192,22 @@ function playerStats(playerName="Ben Gordon"){
     return players[playerName];
 }
 console.log(playerStats());
+
+function bigShoeRebounds(){
+  //finding the player with the largest shoe size
+  let largest=Object.values(players).sort(function(a,b){
+    if (a.shoe > b.shoe)return -1;
+    debugger;
+    if (a.shoe < b.shoe)return 1;
+    debugger;
+    if (a.shoe===b.shoe)return 0;
+
+    
+    return largest
+  })[0];//index 0 signfies the index of the player with the largest shoe
+  console.log(largest)
+  return largest.rebounds
+}
+console.log(bigShoeRebounds())
+
+
