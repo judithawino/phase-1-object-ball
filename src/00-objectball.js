@@ -4,8 +4,7 @@ function gameObject(){
         teamName:"Brooklyn Nets",
         colors:["Blak","White"],
         players:{
-          "Alan Anderson": {stat:
-          {
+          "Alan Anderson": {
             number:0,
             shoe: 16,
             points: 22,
@@ -14,9 +13,8 @@ function gameObject(){
             steals: 3,
             blocks:1,
             slamDunks:1,
-          }},
-          "Reggie Evans": {stat:
-          {
+          },
+          "Reggie Evans": {
             number:30,
             shoe: 14,
             points: 12,
@@ -25,9 +23,8 @@ function gameObject(){
             steals: 12,
             blocks:12,
             slamDunks:7,
-          }},
-          "Brook Lopez":{stat:
-            {
+          },
+          "Brook Lopez":{
             number:30,
             shoe: 14,
             points: 12,
@@ -36,10 +33,8 @@ function gameObject(){
             steals: 12,
             blocks:12,
             slamDunks:7,
-            }
-                        },
-          "Mason Plumlee":{stat:
-            {
+          },
+          "Mason Plumlee":{
             number:1,
             shoe: 19,
             points: 26,
@@ -48,10 +43,8 @@ function gameObject(){
             steals: 3,
             blocks:8,
             slamDunks:5,
-            }
-                        },
-          "Jason Terry":{stat:
-            {
+          },
+          "Jason Terry":{
             number:31,
             shoe: 15,
             points: 19,
@@ -60,8 +53,7 @@ function gameObject(){
             steals: 4,
             blocks:11,
             slamDunks:1,
-            }
-                        },
+          },
           
         }
       },
@@ -69,8 +61,7 @@ function gameObject(){
       teamName:"Charlotte Hornets",
       colors:["Turquoise", "Purple"],
       players: {
-        "Jeff Adrien": {
-          stat: {
+        "Jeff Adrien": {          
             number:4,
             shoe: 18,
             points: 10,
@@ -78,11 +69,9 @@ function gameObject(){
             assists: 1,
             steals: 2,
             blocks:7,
-            slamDunks:2,
-          }
+            slamDunks:2,          
         },
-        "Bismak Biyombo": {
-          stat: {
+        "Bismak Biyombo": {          
             number:0,
             shoe: 16,
             points: 12,
@@ -90,11 +79,9 @@ function gameObject(){
             assists: 7,
             steals: 7,
             blocks:15,
-            slamDunks:10,
-          }
+            slamDunks:10,          
         },
-        "DeSagna Diop": {
-          stat: {
+        "DeSagna Diop": {          
             number:2,
             shoe: 14,
             points: 24,
@@ -103,10 +90,8 @@ function gameObject(){
             steals: 4,
             blocks:5,
             slamDunks:5,
-          }
         },
-        "Ben Gordon": {
-          stat: {
+        "Ben Gordon": {          
             number:8,
             shoe: 15,
             points: 33,
@@ -115,10 +100,8 @@ function gameObject(){
             steals: 1,
             blocks:1,
             slamDunks:0,
-          }
         },
-        "Brendan Haywood": {
-          stat: {
+        "Brendan Haywood": {         
             number:33,
             shoe:15,
             points:6,
@@ -127,7 +110,6 @@ function gameObject(){
             steals:22,
             blocks:5,
             slamDunks:12,
-          }
         }
       }
     }
@@ -136,46 +118,45 @@ function gameObject(){
 }
 console.log(gameObject());
 
-//create a game variable and use it to store the gameObject function
-const game = gameObject()
-//create a players variable and use it to store playersObject function
-const players= playersObject()
-//create a teams variable and use it to store the values of gameObject function
-const teams= Object.values(game);
+function homeTeamName(){
+  let object = gameObject()
+  return object["home"]["teamName"]
+}
+console.log(homeTeamName())
 
-//create a function that uses the spread operator to create and return a new object that combines players both in home and away with all their stats
+const game = gameObject()
+const players= playersObject()
+const teamVar= Object.values(game);
+
 function playersObject(){
-    
   return {...game.home.players, ...game.away.players};  
 }
 console.log (playersObject());
 
-//using the players variable, the numPointsScored function calls the PlayersObject function and returns the points of a given player based on playerName
-function numPointsScored(playerName){
+function numPointsScored(playerName="Brendan Haywood"){
   return players[playerName].points;
 }
-console.log (numPointsScored(playerName));
+console.log (numPointsScored("Jason Terry"));
 
-function shoeSize(playerName){
-  return players[playerName].shoe;
+function shoeSize(playerName="Brendan Haywood"){
+ return players[playerName].shoe;
 }
-console.log (shoeSize(playerName));
+console.log (shoeSize("Jason Terry"));
 
-function teamNameFind(teamName){
-  return teamVar.find(function(){teamName===teamName});
+function teamNameFind(teamName="Brooklyn Nets"){
+  return teamVar.find((teamVar)=>teamName===teamName);
 }
 console.log(teamNameFind())
 
-function teamColors(teamName){
+function teamColors(teamName="Charlotte Hornets"){
     return teamNameFind(teamName).colors;
 }
-console.log (teamColors());
+console.log (teamColors("Brooklyn Nets"));
 
 function teamNames(){
   return teamVar.map(function(team){return team.teamName});  
 }
 console.log(teamNames());
-
 
 function playerNumbers(teamNameArg="Charlotte Hornets"){
   for (let team of teamVar) {
@@ -189,9 +170,10 @@ function playerNumbers(teamNameArg="Charlotte Hornets"){
 console.log(playerNumbers())
 
 function playerStats(playerName="Ben Gordon"){
-    return players[playerName];
+  return players[playerName]
+  
 }
-console.log(playerStats());
+console.log (playerStats())
 
 function bigShoeRebounds(){
   //finding the player with the largest shoe size
@@ -204,7 +186,7 @@ function bigShoeRebounds(){
 
     
     return largest
-  })[0];//index 0 signfies the index of the player with the largest shoe
+  })[0];
   console.log(largest)
   return largest.rebounds
 }
@@ -218,10 +200,9 @@ function mostPointsScored(){
     debugger;
     if (a[1].shoe < b[1].shoe)return 1;
     debugger;
-    if (a[1].shoe===b[1].shoe)return 0;     
+    if (a[1].shoe===b[1].shoe)return 0; 
+    
   });  
   return mostPoints[0][0]//accessing nested arrays
 }
 console.log(mostPointsScored())
-
-
