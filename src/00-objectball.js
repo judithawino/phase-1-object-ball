@@ -187,3 +187,8 @@ function playerNumbers(teamNameArg="Charlotte Hornets"){
   }
 }
 console.log(playerNumbers())
+
+function playerStats(playerName="Ben Gordon"){
+    return players[playerName];
+}
+console.log(playerStats());
