@@ -175,3 +175,15 @@ function teamNames(){
   return teamVar.map(function(team){return team.teamName});  
 }
 console.log(teamNames());
+
+
+function playerNumbers(teamNameArg="Charlotte Hornets"){
+  for (let team of teamVar) {
+    if (team.teamName===teamNameArg) {
+      let stat = Object.values(team.players);
+      return stat.map(function(stat){return stat.number});
+    }
+    
+  }
+}
+console.log(playerNumbers())
