@@ -210,4 +210,18 @@ function bigShoeRebounds(){
 }
 console.log(bigShoeRebounds())
 
+function mostPointsScored(){
+  //finding the player with the most points
+      //using Object.entries() to return an array of playersObject enumerating its keys and values then applying .sort()to sort the array
+  let mostPoints=Object.entries(players).sort(function(a,b){
+    if (a[1].shoe > b[1].shoe)return -1;
+    debugger;
+    if (a[1].shoe < b[1].shoe)return 1;
+    debugger;
+    if (a[1].shoe===b[1].shoe)return 0;     
+  });  
+  return mostPoints[0][0]//accessing nested arrays
+}
+console.log(mostPointsScored())
+
 
